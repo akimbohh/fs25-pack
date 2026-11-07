@@ -8,8 +8,10 @@
   2. Reads the pack list (manifest.json): every mod's file name, version and SHA-256 fingerprint.
   3. Downloads each missing or changed mod straight from GIANTS' official ModHub servers
      (or from -MirrorBase if given) and checks the fingerprint before installing it.
-  4. Moves anything that is NOT in the pack (old versions, other mods) into a dated backup folder,
-     so your mods folder matches the pack exactly. Nothing is deleted.
+  4. Old versions of pack mods go to a dated backup folder. Your other mods are kept unless you pass
+     -RemoveExtras. Nothing is deleted.
+  NOTE: this script is the fallback. The main installer is fs25-pack-installer.exe, which also handles
+  Windows Ransomware protection (Controlled folder access).
   Re-run it any time: it only downloads what changed. No admin rights needed.
 
 .PARAMETER ManifestUrl
@@ -18,8 +20,8 @@
   Optional web address or local folder holding the mod zips (used before ModHub).
 .PARAMETER ModsPath
   Optional: use this mods folder instead of finding it automatically.
-.PARAMETER KeepExtras
-  Keep mods that are not in the pack instead of moving them to the backup folder.
+.PARAMETER RemoveExtras
+  Move mods that are not in the pack into the backup folder (default: keep them).
 .PARAMETER Unattended
   No questions, no "press Enter" at the end. Exit code 0 = success, 1 = failed, 2 = game is running.
 
@@ -31,7 +33,7 @@ param(
     [string]$ManifestUrl = "https://github.com/akimbohh/fs25-pack/releases/latest/download/manifest.json",
     [string]$MirrorBase = "",
     [string]$ModsPath = "",
-    [switch]$KeepExtras,
+    [switch]$RemoveExtras,
     [switch]$Unattended
 )
 
@@ -177,7 +179,7 @@ Remove-Item -LiteralPath $tmp -Recurse -Force -ErrorAction SilentlyContinue
 
 # 3) Anything not in the pack goes to the backup folder so everyone matches exactly.
 $removed = 0
-if (-not $KeepExtras) {
+if ($RemoveExtras) {
     Get-ChildItem -LiteralPath $mods -Force | Where-Object {
         $_.Name -ne ".fs25pack-download" -and -not $wanted.ContainsKey($_.Name.ToLowerInvariant())
     } | ForEach-Object { Move-ToBackup $_.FullName; $removed++; Say ("   Moved out (not in pack): {0}" -f $_.Name) }
