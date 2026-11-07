@@ -20,6 +20,14 @@ If Controlled folder access is on, Windows stops new apps from writing to Docume
 - The installer copies itself to `%LOCALAPPDATA%\fs25-pack\fs25-pack-installer.exe` and runs from there, because Windows remembers the allowed app by its location. Use that copy for future updates.
 - **By hand:** Windows Security > Virus & threat protection > Manage ransomware protection > Allow an app through Controlled folder access > Add an allowed app > Browse all apps. Pick the installer, then click **Try again**.
 
+## What's new in 2026.11.07-r2 (adds 6 mods, changes none)
+
+Re-run the same installer; it only downloads the 6 new mods. Your existing 63 and your own mods stay as they are.
+
+- DynamicDrive Pro, Wet Ground Wheel Slip, Interactive Control (GIANTS ModHub)
+- Soil Deformation Save (downloaded from the author's own Google Drive link; the author doesn't allow re-uploads)
+- 1976 Chevrolet K30 by CrowneX and 2020 GMC Sierra Denali 2500 by AG Farms (free on the authors' itch.io pages; copies attached to the release so the installer can fetch them, each checked by SHA-256)
+
 ## Details
 
 - Mods come straight from the official GIANTS ModHub, and each file is checked against the SHA-256 fingerprint in `manifest.json`.
