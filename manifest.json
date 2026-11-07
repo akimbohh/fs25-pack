@@ -1,9 +1,9 @@
 {
   "pack": "fs25-rags-to-riches",
-  "pack_version": "2026.11.07-r2",
+  "pack_version": "2026.11.07-r3",
   "game_patch": "1.25.1.0",
-  "mod_count": 69,
-  "total_bytes": 1490216237,
+  "mod_count": 70,
+  "total_bytes": 1490334819,
   "mods": [
     {
       "mod_id": 361360,
@@ -1126,6 +1126,24 @@
       "url": "https://ag-farms.itch.io/2020-gmc-sierra-denali-2500",
       "added": "2026-11-07",
       "note": "Duramax HD pickup (GMC twin of the Silverado 2500HD), $63,900, gooseneck + ball hitch."
+    },
+    {
+      "mod_id": 303889,
+      "name": "LumberJack",
+      "file": "FS25_LumberJack.zip",
+      "version": "1.1.2.0",
+      "modDesc_version": "1.1.2.0",
+      "released": "20.12.2024",
+      "page_size": "0.11 MB",
+      "bytes": 118582,
+      "sha256": "2621f3145ec7a54ab73e54aec63d6601670ac81a27292c93e5b149fc3f2aff1d",
+      "category": "forestry",
+      "tier": "core",
+      "modhub": true,
+      "download": "https://cdn27.giants-software.com/modHub/storage/00303889/FS25_LumberJack.zip",
+      "url": "https://www.farming-simulator.com/mod.php?mod_id=303889&title=fs2025",
+      "added": "2026-11-07",
+      "note": "LumberJack: chainsaw can cut trees anywhere on the map (Cut Anywhere is ON by default, host/admin setting); also stump grinding. Super strength stays off unless toggled."
     }
   ]
 }
